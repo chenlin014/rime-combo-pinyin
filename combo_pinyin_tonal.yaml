@@ -39,11 +39,6 @@ pc_layout_combos:
     - xform/NG$/ei/
     - xform/WO$/ou/
     - xform/AO$/ao/
-    - xform/AG$/ang/
-    - xform/IG$/ing/
-    - xform/UG$/ong/
-    - xform/VG$/iong/
-    - xform/G$/eng/
     - xform/W$/e/
     # 聲調
     - xform/24/3/
@@ -53,8 +48,6 @@ pc_layout_combos:
 
 common_options:
   algebra/+:
-    - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
-
     # G,K,H 接 I/Ü 作 ⟨ji/ju, qi/qu, xi/xu⟩
     # 若分尖團，也可用 Z,C,S 與 I/Ü 相拼
     - xform/^[gz]([IV])/j$1/
@@ -66,20 +59,19 @@ common_options:
     # 舌尖元音⟨ï⟩
     - xform/^([zcsr]h?)R?([1-5]?)$/$1i$2/
 
-    - xform/ANE([1-5]?)$/ang$1/
-    - xform/UARO([1-5]?)$/uang$1/
-    - xform/IRO([1-5]?)$/iong$1/
-    - xform/URO([1-5]?)$/ong$1/
-    - xform/VNE([1-5]?)$/iong$1/
-    - xform/UNE([1-5]?)$/ong$1/
-    - xform/INE([1-5]?)$/ing$1/
-    - xform/NE([1-5]?)$/eng$1/
-
+    # 前鼻音
     - xform/AN([1-5]?)$/an$1/
     - xform/VN([1-5]?)$/vn$1/
     - xform/UN([1-5]?)$/uen$1/
     - xform/IN([1-5]?)$/in$1/
     - xform/N([1-5]?)$/en$1/
+
+    # 后鼻音
+    - xform/AG([1-5]?)$/ang$1/
+    - xform/VG([1-5]?)$/iong$1/
+    - xform/UG([1-5]?)$/ong$1/
+    - xform/IG([1-5]?)$/ing$1/
+    - xform/G([1-5]?)$/eng$1/
 
     - xform/IAR([1-5]?)$/iao$1/
     - xform/IR([1-5]?)$/iou$1/
@@ -90,6 +82,7 @@ common_options:
     - xform/RE?([1-5]?)$/ei$1/
     - xform/AE([1-5]?)$/a$1/
 
+    - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
     - xlit/AOEIUV/aoeiuv/
 
     # 漢語拼音方案的拼寫規則
