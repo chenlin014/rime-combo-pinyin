@@ -43,6 +43,9 @@ pc_layout_combos:
     - xform/VG$/iong/
     - xform/G$/eng/
     - xform/W$/e/
+    # 声调
+    - xform/24/3/
+    # - xform/^([a-zA-Z]+)$/$11/
 
 common_options:
   algebra/+:
@@ -55,78 +58,78 @@ common_options:
     - xform/^[hs]([IV])/x$1/
 
     # ⟨er⟩自成音節
-    - xform/^R$/er/
+    - xform/^R([1-5]?)$/er$1/
     # 舌尖元音⟨ï⟩
-    - xform/^([zcsr]h?)R?$/$1i/
+    - xform/^([zcsr]h?)R?([1-5]?)$/$1i$2/
 
-    - xform/ANE$/ang/
-    - xform/UARO$/uang/
-    - xform/IRO$/iong/
-    - xform/URO$/ong/
-    - xform/VNE$/iong/
-    - xform/UNE$/ong/
-    - xform/INE$/ing/
-    - xform/NE$/eng/
+    - xform/ANE([1-5]?)$/ang$1/
+    - xform/UARO([1-5]?)$/uang$1/
+    - xform/IRO([1-5]?)$/iong$1/
+    - xform/URO([1-5]?)$/ong$1/
+    - xform/VNE([1-5]?)$/iong$1/
+    - xform/UNE([1-5]?)$/ong$1/
+    - xform/INE([1-5]?)$/ing$1/
+    - xform/NE([1-5]?)$/eng$1/
 
-    - xform/AN$/an/
-    - xform/VN$/vn/
-    - xform/UN$/uen/
-    - xform/IN$/in/
-    - xform/N$/en/
+    - xform/AN([1-5]?)$/an$1/
+    - xform/VN([1-5]?)$/vn$1/
+    - xform/UN([1-5]?)$/uen$1/
+    - xform/IN([1-5]?)$/in$1/
+    - xform/N([1-5]?)$/en$1/
 
-    - xform/IAR$/iao/
-    - xform/IR$/iou/
-    - xform/UR$/uei/
-    - xform/AO$/ao/
-    - xform/RO$/ou/
-    - xform/AR$/ai/
-    - xform/RE?$/ei/
-    - xform/AE$/a/
+    - xform/IAR([1-5]?)$/iao$1/
+    - xform/IR([1-5]?)$/iou$1/
+    - xform/UR([1-5]?)$/uei$1/
+    - xform/AO([1-5]?)$/ao$1/
+    - xform/RO([1-5]?)$/ou$1/
+    - xform/AR([1-5]?)$/ai$1/
+    - xform/RE?([1-5]?)$/ei$1/
+    - xform/AE([1-5]?)$/a$1/
 
     - xlit/AOEIUV/aoeiuv/
 
     # 漢語拼音方案的拼寫規則
-    - xform/^i(ng?)$/yi$1/
-    - xform/^i$/yi/
+    - xform/^i(ng?)([1-5]?)$/yi$1$2/
+    - xform/^i([1-5]?)$/yi$1/
     - xform/^i/y/
-    - xform/^ong$/weng/
-    - xform/^u$/wu/
+    - xform/^ong([1-5]?)$/weng$1/
+    - xform/^u([1-5]?)$/wu$1/
     - xform/^u/w/
     - xform/^v/yu/
     - xform/^([jqx])v/$1u/
     # 一些容錯
-    - xform/^([bpmf])uo$/$1o/
-    - xform/^([dtngkhzcsr]h?)o$/$1uo/
-    - xform/io$/iao/
-    - xform/^([nl])uei$/$1ei/
-    - xform/^([nl])iong$/$1ong/
+    - xform/^([bpmf])uo([1-5]?)$/$1o$2/
+    - xform/^([dtngkhzcsr]h?)o([1-5]?)$/$1uo$2/
+    - xform/io([1-5]?)$/iao$1/
+    - xform/^([nl])uei([1-5]?)$/$1ei$2/
+    - xform/^([nl])iong([1-5]?)$/$1ong$2/
     - xform/^([zcsr]h?)i([aoe])/$1$2/
-    - xform/^([zcsr]h?)i(ng?)$/$1e$2/
+    - xform/^([zcsr]h?)i(ng?)([1-5]?)$/$1e$2$3/
     # 拼寫規則
-    - xform/iou$/iu/
-    - xform/uei$/ui/
-    - xform/uen$/un/
+    - xform/iou([1-5]?)$/iu$1/
+    - xform/uei([1-5]?)$/ui$1/
+    - xform/uen([1-5]?)$/un$1/
 
     # 聲母獨用時補足隠含的韻母
     # ⟨bu, pu, fu⟩
     - xform/^([bpf])$/$1u/
     # ⟨de, te, ne, le, ge, ke, he⟩
     # 特別地，⟨me⟩ 對應常用字「麼·么」
-    - xform/^([mdtnlgkh])$/$1e/
+    - xform/^([mdtnlgkh])([1-5]?)$/$1e$2/
 
   # 並擊完成後套用的式樣
   output_format:
     # 追加隔音符號
-    - "xform/^([bpm])([iu]|a|i?e|o|[ae]i|i?ao|[oi]u|i?an|[ie]n|[ei]ng|ang|ong)$/$1$2'/"
-    - "xform/^([fw])(u|a|o|[ae]i|ao|ou|an|en|eng|ang|ong)$/$1$2'/"
-    - "xform/^([dt])([iu]|i?a|i?e|uo|[aeu]i|i?ao|[oi]u|[iu]?an|[ue]n|[ei]ng|ang|ong)$/$1$2'/"
-    - "xform/^([nl])([iuv]|i?a|[iv]?e|u?o|[aeu]i|i?ao|[oi]u|[iu]?an|[iue]n|[ei]ng|i?ang|ong)$/$1$2'/"
-    - "xform/^([gkh])(u|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
-    - "xform/^([zcs]h?|r)([iu]|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
-    - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)$/$1$2'/"
-    - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)$/$1'/"
+    - "xform/^([bpm])([iu]|a|i?e|o|[ae]i|i?ao|[oi]u|i?an|[ie]n|[ei]ng|ang|ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([fw])(u|a|o|[ae]i|ao|ou|an|en|eng|ang|ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([dt])([iu]|i?a|i?e|uo|[aeu]i|i?ao|[oi]u|[iu]?an|[ue]n|[ei]ng|ang|ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([nl])([iuv]|i?a|[iv]?e|u?o|[aeu]i|i?ao|[oi]u|[iu]?an|[iue]n|[ei]ng|i?ang|ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([gkh])(u|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([zcs]h?|r)([iu]|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)([1-5]?)$/$1$2$3'/"
+    - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)([1-5]?)$/$1$2'/"
     # 消除不構成合法音節的並擊組合
-    - "erase/^([A-Za-z+]+)$/"
+    - "erase/^([A-Za-z+]+[1-5]?)$/"
   # 並擊過程中套用的式樣
   prompt_format:
     # 加方括弧

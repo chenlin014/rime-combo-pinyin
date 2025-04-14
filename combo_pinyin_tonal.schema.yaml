@@ -63,8 +63,8 @@ speller:
     - "xform/^([a-z]+)$/$1'/"
 
 translator:
-  dictionary: luna_pinyin
-  prism: combo_pinyin
+  dictionary: terra_pinyin
+  prism: combo_pinyin_tonal
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
